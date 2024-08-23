@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Lavender Essentials</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="images2/img1.jpg" width="125px" alt="Logo">
+      </div>
+      <nav>
+        <ul id="menuitems">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="account.html">Account</a></li>
+        </ul>
+      </nav>
+      <img src="images/cart.png" width="30px" height="30px" alt="Cart">
+      <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" alt="Menu">
+    </div>
+  </div>
+</div>
+
+<div class="small-container">
+  <h2 class="title">Contact Us</h2>
+  <p>If you have any questions, feel free to reach out to us:</p>
+  <p>Phone: +123 456 7890</p>
+  <p>Email: info@lavenderessentials.com</p>
+</div>
+
+<script>
+  var menuitem = document.getElementById("menuitems");
+  menuitem.style.maxHeight = "0px";
+  function menutoggle() {
+    if (menuitem.style.maxHeight == "0px") {
+      menuitem.style.maxHeight = "200px";
+    } else {
+      menuitem.style.maxHeight = "0px";
+    }
+  }
+</script>
+
+</body>
+</html>

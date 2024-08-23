@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Lavender Essentials</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="images2/img1.jpg" width="125px" alt="Logo">
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <img src="images/cart.png" width="30px" height="30px" alt="Cart">
+            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" alt="Menu">
+        </div>
+    </div>
+</div>
+
+<!-- Sorting Feature -->
+<div class="small-container">
+    <div class="row row-2">
+        <h2>All Products</h2>
+        <select id="sortPrice" onchange="sortProducts()">
+            <option value="default">Sort by Price</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+        </select>
+    </div>
+
+    <div class="row" id="productContainer">
+        <!-- Products will be displayed here -->
+        <div class="col-4" data-price="150">
+            <img src="images2/product-1.jpg" alt="Product 1">
+            <h4>Women Necklace</h4>
+            <p>Rs.1050</p>
+        </div>
+        <div class="col-4" data-price="100">
+            <img src="images2/product-2.jpg" alt="Product 2">
+            <h4>Simple Necklace</h4>
+            <p>Rs.1050</p>
+        </div>
+        <div class="col-4" data-price="200">
+            <img src="images2/product-3.jpg" alt="Product 3">
+            <h4>Golden Necklace</h4>
+            <p>Rs.1050</p>
+        </div>
+        <div class="col-4" data-price="120">
+            <img src="images2/product-4.jpg" alt="Product 4">
+            <h4>Green Necklace</h4>
+            <p>Rs.1050</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sortProducts() {
+        const container = document.getElementById('productContainer');
+        const products = Array.from(container.getElementsByClassName('col-4'));
+        const sortOption = document.getElementById('sortPrice').value;
+
+        let sortedProducts;
+
+        if (sortOption === 'lowToHigh') {
+            sortedProducts = products.sort((a, b) => {
+                return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+            });
+        } else if (sortOption === 'highToLow') {
+            sortedProducts = products.sort((a, b) => {
+                return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+            });
+        } else {
+            sortedProducts = products;
+        }
+
+        container.innerHTML = '';
+        sortedProducts.forEach(product => {
+            container.appendChild(product);
+        });
+    }
+
+    var menuitem = document.getElementById("menuitems");
+    menuitem.style.maxHeight = "0px";
+    function menutoggle() {
+        if (menuitem.style.maxHeight == "0px") {
+            menuitem.style.maxHeight = "200px";
+        } else {
+            menuitem.style.maxHeight = "0px";
+        }
+    }
+</script>
+
+</body>
+</html>
